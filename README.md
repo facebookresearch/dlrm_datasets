@@ -2,7 +2,7 @@
 # Description
 A synthetic dataset comprised of input data for embedding lookup layers arising 
 in recommendation models, such as [DLRM](https://github.com/facebookresearch/dlrm), 
-that shares memory access reuse patterns similar to those arising in Facebook 
+that shares memory access reuse patterns similar to those arising in Meta 
 production recomendation workloads.
 
 ```
@@ -34,7 +34,7 @@ In practice, the Lengths vector is stored in the form of Offsets to reduce compl
 The synthetic dataset provided in this project serves as sample inputs for the Indices and Offsets vectors;
 the corresponding Lengths vector is provided for correctness validation as well.
 
-The intent of this data is to supposed researchers and system designers with data representative of the memory access patterns observed during training of Facebook's production ads models in order to offer guidance for their work in improving software computing solutions and hardware design.
+The intent of this data is to support researchers and system designers with data representative of the memory access patterns observed during training of Meta's production ads models in order to offer guidance for their work in improving software computing solutions and hardware design.
 
 ## Reuse pattern
 Datasets in this project are accompanied by the observed reuse factor of unique 

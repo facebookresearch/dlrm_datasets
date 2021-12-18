@@ -45,6 +45,13 @@ indices, offsets, lengths = torch.load("../dlrm_datasets/embedding_bag/fbgemm_t8
 
 The intent of this data is to support researchers and system designers with data representative of the memory access patterns observed during training of Meta's production ads models in order to offer guidance for their work in improving software computing solutions and hardware design.
 
+### FBGemm
+These datasets serve as input to the [`split_table_batched_embeddings`](https://github.com/pytorch/FBGEMM/blob/main/fbgemm_gpu/bench/split_table_batched_embeddings_benchmark.py) 
+benchmark, a part of the [FBGemm project](https://github.com/pytorch/FBGEMM).  For those interested
+in benchmarking subsets of the tables provided in the dataset, a 
+[batch execution script](https://github.com/pytorch/FBGEMM/tree/main/fbgemm_gpu/bench/scripts)  has 
+been added to the project as well.
+
 ## Reuse pattern
 Datasets in this project are accompanied by the observed reuse factor of unique
 indices found in the dataset, represented as a histogram. Consider the following

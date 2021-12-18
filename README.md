@@ -32,7 +32,16 @@ In practice, the Lengths vector is stored in the form of Offsets to reduce compl
 
 ## Usage
 The synthetic dataset provided in this project serves as sample inputs for the Indices and Offsets vectors;
-the corresponding Lengths vector is provided for correctness validation as well.
+the corresponding Lengths vector is provided for correctness validation as well. Each `pt` file contains an
+independently generated synthetic dataset with batch size and the number of tables specified in the filename.
+For example, the dataset `fbgemm_t856_bs65536.pt` represents a single batch of 65536 samples for 856 tables.
+To load the synthetic dataset,
+
+```python
+import torch
+
+indices, offsets, lengths = torch.load("../dlrm_datasets/embedding_bag/fbgemm_t856_bs65536.pt")
+```
 
 The intent of this data is to support researchers and system designers with data representative of the memory access patterns observed during training of Meta's production ads models in order to offer guidance for their work in improving software computing solutions and hardware design.
 

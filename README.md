@@ -33,7 +33,8 @@ In practice, the Lengths vector is stored in the form of Offsets to reduce compl
 ## Usage
 The synthetic dataset provided in this project serves as sample inputs for the Indices and Offsets vectors;
 the corresponding Lengths vector is provided for correctness validation as well. Each `pt` file contains an
-independently generated synthetic dataset with a batch of size 65536 making lookups to 856 tables.
+independently generated synthetic dataset with batch size and the number of tables specified in the filename.
+For example, the dataset `fbgemm_t856_bs65536.pt` represents a single batch of 65536 samples for 856 tables.
 To load the synthetic dataset,
 
 ```python

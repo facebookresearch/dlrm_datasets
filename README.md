@@ -32,9 +32,27 @@ In practice, the Lengths vector is stored in the form of Offsets to reduce compl
 
 ## Usage
 The synthetic dataset provided in this project serves as sample inputs for the Indices and Offsets vectors;
-the corresponding Lengths vector is provided for correctness validation as well.
+the corresponding Lengths vector is provided for correctness validation as well. Each `pt` file contains an
+independently generated synthetic dataset with batch size and the number of tables specified in the filename.
+For example, the dataset `fbgemm_t856_bs65536.pt.gz` represents a single batch of 65536 samples for 856 tables.
+To load the synthetic dataset,
+
+```python
+import gzip
+import torch
+
+with gzip.open("../dlrm_datasets/embedding_bag/fbgemm_t856_bs65536.pt.gz") as f:
+    indices, offsets, lengths = torch.load(f)
+```
 
 The intent of this data is to support researchers and system designers with data representative of the memory access patterns observed during training of Meta's production ads models in order to offer guidance for their work in improving software computing solutions and hardware design.
+
+### FBGemm
+These datasets serve as input to the [`split_table_batched_embeddings`](https://github.com/pytorch/FBGEMM/blob/main/fbgemm_gpu/bench/split_table_batched_embeddings_benchmark.py) 
+benchmark, a part of the [FBGemm project](https://github.com/pytorch/FBGEMM).  For those interested
+in benchmarking subsets of the tables provided in the dataset, a 
+[batch execution script](https://github.com/pytorch/FBGEMM/tree/main/fbgemm_gpu/bench/scripts)  has 
+been added to the project as well.
 
 ## Reuse pattern
 Datasets in this project are accompanied by the observed reuse factor of unique

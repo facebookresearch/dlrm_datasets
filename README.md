@@ -41,7 +41,7 @@ To load the synthetic dataset,
 import gzip
 import torch
 
-with gzip.open("../dlrm_datasets/embedding_bag/fbgemm_t856_bs65536.pt.gz") as f:
+with gzip.open("../dlrm_datasets/embedding_bag/2021/fbgemm_t856_bs65536.pt.gz") as f:
     indices, offsets, lengths = torch.load(f)
 ```
 
